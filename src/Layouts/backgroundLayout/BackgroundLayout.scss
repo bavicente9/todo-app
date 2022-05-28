@@ -1,0 +1,55 @@
+@import '../../Utils/style/globalVariables.scss';
+
+.background_container{
+
+    display: block;
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+
+    .background_top{
+        height: 30vh;
+        width: 100vw;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .background_top--dark{
+        background-image: url('../../Assets/darkMode/bg-desktop-dark.jpg');
+    }
+    
+    .background_top--light{
+        background-image: url('../../Assets/lightMode/bg-desktop-light.jpg');
+
+    }
+    
+
+    .background_bottom{
+        height: 70vh;
+        width: 100vw;
+    }
+
+    .background_bottom--dark{
+        background-color: $veryDarkBlue;
+    }
+    .background_bottom--light{
+        background-color: $veryLightGray;
+    }
+
+
+
+    @media (max-width: 375px) {
+        
+        .background_top--dark{
+            background-image: url('../../Assets/darkMode/bg-mobile-dark.jpg');
+        }
+        
+        .background_top--light{
+            background-image: url('../../Assets/lightMode/bg-mobile-light.jpg');
+    
+        }
+    }
+
+}
