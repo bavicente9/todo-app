@@ -8,7 +8,6 @@ const initialState = {
 export const counterSlice = createSlice({
   name: 'theme',
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     changeToDark: (state) => {
       state.value = 'dark';
@@ -18,6 +17,8 @@ export const counterSlice = createSlice({
     },
   },
 });
+
+export const selectTheme = (state) => state.theme.value;
 
 export const {changeToDark, changeToLight} = counterSlice.actions;
 

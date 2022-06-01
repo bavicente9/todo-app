@@ -1,10 +1,12 @@
+import { useSelector } from 'react-redux'
+import { selectTheme } from '../../features/theme/themeSlice'
+
+
 import './BackgroundLayout.scss'
 
 const Background = () => {
   
-    //TODO:   use the theme with redux
-    
-    const theme = 'dark'
+    const theme = useSelector(selectTheme)
     return(
         <div className="background_container">
             <div className={`background_top background_top--${theme}`}>
