@@ -37,3 +37,15 @@ $fontFamily:'Josefin Sans', sans-serif;
 //Mobile width
 
 $mobileWidth:375px;
+
+//containers widths
+
+$globalContainer-minWidth : 500px;
+$globalContainer-maxWidth : 50vw;
+
+$globalMobileContainer-minWidth : 300px;
+$globalMobileContainer-maxWidth : 90vw;
+
+//global @media max-width to change to mobile view
+
+$globalMedia-maxWidth:600px;

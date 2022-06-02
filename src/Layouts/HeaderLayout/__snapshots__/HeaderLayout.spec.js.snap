@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderLayout match with snapshot 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="header_container"
+  >
+    <h1
+      className="title"
+    >
+      TODO
+    </h1>
+    <button
+      className="buttonTheme buttonTheme--dark"
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+</header>
+`;
