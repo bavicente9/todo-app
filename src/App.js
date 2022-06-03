@@ -3,7 +3,7 @@ import './App.scss';
 
 import HeaderLayout from './Layouts/HeaderLayout/HeaderLayout'
 import BackgroundLayout from './Layouts/backgroundLayout/BackgroundLayout'
-import TodoInput from './Components/todoInput/TodoInput'
+import TodoForm from './Components/todoForm/TodoForm'
 import TodoList from './Components/todoList/TodoList'
 
 
@@ -15,7 +15,7 @@ function App() {
       <HeaderLayout />
 
       <main>
-         <TodoInput />
+         <TodoForm />
          <TodoList />
       </main>
 

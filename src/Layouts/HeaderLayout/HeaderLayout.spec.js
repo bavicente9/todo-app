@@ -1,6 +1,4 @@
 import configureStore from "redux-mock-store"
-import userEvent from '@testing-library/user-event'
-import { act, render } from "@testing-library/react"
 import renderer from 'react-test-renderer';
 import { Provider } from "react-redux"
 import HeaderLayout from "./HeaderLayout"
@@ -43,6 +41,7 @@ describe('HeaderLayout', () => {
     })
 
     // it('button theme toggle between sun and moon icons classes', () => {
+        //TODO:
     //     const buttonTheme = wrapper.getByRole('button');
     //     const actualTheme = store.getState().theme.value
 
