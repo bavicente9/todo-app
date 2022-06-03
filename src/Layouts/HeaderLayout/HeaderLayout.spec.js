@@ -36,22 +36,6 @@ describe('HeaderLayout', () => {
         })
 
         expect(store.dispatch).toHaveBeenCalledTimes(1);
-
-
     })
-
-    // it('button theme toggle between sun and moon icons classes', () => {
-        //TODO:
-    //     const buttonTheme = wrapper.getByRole('button');
-    //     const actualTheme = store.getState().theme.value
-
-    //     expect(buttonTheme.classList).toContain('buttonTheme--dark')
-
-    //     userEvent.click(buttonTheme)
-    //     expect(buttonTheme.classList).toContain('buttonTheme--light')
-
-    //     userEvent.click(buttonTheme)
-    //     expect(buttonTheme.classList).toContain('buttonTheme--dark')
-
-    // })
+ 
 })
