@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectTheme } from '../../features/theme/themeSlice'
-import {addTodo, selectEntities} from '../../features/todosList/todosSlice'
+import {addTodo} from '../../features/todosList/todosSlice'
 import './TodoForm.scss'
 
 const TodoForm = () => {
@@ -12,7 +12,6 @@ const TodoForm = () => {
     const theme = useSelector(selectTheme)
     const dispatch = useDispatch()
     
-    const todolist = useSelector(selectEntities) 
 
     const handleCheckbox = (e) => {
         e.preventDefault()
