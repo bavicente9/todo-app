@@ -10,29 +10,7 @@ describe('todo input', () => {
     let component;
     beforeEach(() => {
          //render a component with a mock Store
-        const initialStore = {
-            theme: {value: 'dark'},
-            todos: {
-                entities: [
-                    {
-                        id: '1',
-                        text: 'text example',
-                        active: true
-                    },
-                    {
-                        id: '2',
-                        text: 'text example number 2',
-                        active: false
-                    },
-                ],
-                showList: 'all',
-                counterActive: 2
-            }
-        }
-
-        const { component: com, store: sto } = componentWithMockStore(<TodoForm />, initialStore)
-        store = sto
-        component = com
+        ({ component, store } = componentWithMockStore(<TodoForm />))
     });
 
     it('match with snapshot', () => {

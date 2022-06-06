@@ -10,10 +10,7 @@ describe('HeaderLayout', () => {
     let component;
     beforeEach(() => {
         //render a component with a mock Store
-        const initialStore = {theme:{value:'dark'}}
-        const {component:com, store:sto} = componentWithMockStore(<HeaderLayout /> ,initialStore )
-        store = sto
-        component = com
+        ( {component, store} = componentWithMockStore(<HeaderLayout />  ))
     });
 
     it('match with snapshot', () => {
