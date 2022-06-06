@@ -1,23 +1,17 @@
 
-import configureStore from "redux-mock-store"
-import userEvent from '@testing-library/user-event'
 import renderer from 'react-test-renderer';
-import { Provider } from "react-redux"
 import TodoForm from "./TodoForm";
-import { fireEvent } from "@testing-library/react";
+import componentWithMockStore from "../../Utils/test/componentWithMockStore";
 
 
-const mockStore = configureStore([])
 
 describe('todo input', () => {
     let store
     let component;
     beforeEach(() => {
-        //create a mock Store
-        store = mockStore({
-            theme: {
-                value: 'dark'
-            },
+         //render a component with a mock Store
+        const initialStore = {
+            theme: {value: 'dark'},
             todos: {
                 entities: [
                     {
@@ -33,16 +27,12 @@ describe('todo input', () => {
                 ],
                 showList: 'all',
                 counterActive: 2
-
             }
-        });
-        store.dispatch = jest.fn()
+        }
 
-        component = renderer.create(
-            <Provider store={store}>
-                <TodoForm />
-            </Provider>
-        );
+        const { component: com, store: sto } = componentWithMockStore(<TodoForm />, initialStore)
+        store = sto
+        component = com
     });
 
     it('match with snapshot', () => {
@@ -68,7 +58,7 @@ describe('todo input', () => {
         let input;
 
         renderer.act(() => {
-            
+
             const ev = {
                 preventDefault: jest.fn(),
                 target: {
