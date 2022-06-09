@@ -2,6 +2,7 @@ import configureStore from "redux-mock-store"
 import renderer from 'react-test-renderer';
 import { Provider } from "react-redux"
 
+//TODO: use the real store?
 
 const defaultState = {
   theme: { value: 'dark' },
@@ -25,6 +26,8 @@ const defaultState = {
 
 
 const componentWithMockStore = (children , initialState = defaultState) => {
+    
+    initialState = {defaultState, ...initialState}
     //create a mock Store
     const mockStore = configureStore([])
     const store = mockStore(initialState);
