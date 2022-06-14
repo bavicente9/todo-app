@@ -15,7 +15,7 @@ const initialState = {
             active: false
         },
     ],
-    showList: 'all',
+    filter: 'all',
     counterActive: 2
 };
 
@@ -53,17 +53,17 @@ export const todosSlice = createSlice({
                 state.counterActive--
             }
         },
-        changeShowList: (state, action) => {
-            state.showList = action.payload
+        changeFilter: (state, action) => {
+            state.Filter = action.payload
         },
     },
 
 });
 
-export const { addTodo, removeTodo, removeTodosCompleteds, toggleActiveStatus,changeShowList } = todosSlice.actions;
+export const { addTodo, removeTodo, removeTodosCompleteds, toggleActiveStatus,changeFilter } = todosSlice.actions;
 
 export const selectEntities = (state) => state.todos.entities;
-export const selectShowList = (state) => state.todos.showList;
+export const selectFilter = (state) => state.todos.Filter;
 export const selectCounterActive = (state) => state.todos.counterActive;
 
 

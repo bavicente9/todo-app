@@ -19,7 +19,7 @@ const defaultState = {
               active: false
           },
       ],
-      showList: 'all',
+      filter: 'all',
       counterActive: 2
   }
 }

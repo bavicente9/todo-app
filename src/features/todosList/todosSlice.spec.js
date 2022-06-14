@@ -1,4 +1,4 @@
-import todosReducer, { addTodo, changeShowList, removeTodo, removeTodosCompleteds, toggleActiveStatus } from "./todosSlice";
+import todosReducer, { addTodo, changefilter, removeTodo, removeTodosCompleteds, toggleActiveStatus } from "./todosSlice";
 
 
 describe('todos reducer', () => {
@@ -16,7 +16,7 @@ describe('todos reducer', () => {
                 active: false
             },
         ],
-        showList: 'all',
+        filter: 'all',
         counterActive: 2
     };
 
@@ -62,20 +62,20 @@ describe('todos reducer', () => {
     } )
 
 
-    it('should toggle "showList" between "all", "active", "completed"', () => {
+    it('should toggle "filter" between "all", "active", "completed"', () => {
         
         const initialState = {
             value: 'dark'
         }
         
-        let actual = todosReducer(initialState, changeShowList('active'));
-        expect(actual.showList).toEqual('active');
+        let actual = todosReducer(initialState, changeFilter('active'));
+        expect(actual.filter).toEqual('active');
         
-        actual = todosReducer(initialState, changeShowList('completed'));
-        expect(actual.showList).toEqual('completed');
+        actual = todosReducer(initialState, changeFilter('completed'));
+        expect(actual.filter).toEqual('completed');
         
-        actual = todosReducer(initialState, changeShowList('all'));
-        expect(actual.showList).toEqual('all');
+        actual = todosReducer(initialState, changeFilter('all'));
+        expect(actual.Filter).toEqual('all');
     })
     
     it('should add one to the counter', () => {

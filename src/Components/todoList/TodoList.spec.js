@@ -23,7 +23,7 @@ describe('TodoList', () => {
 
     it('Filter by Active items', () => {
 
-        const initialState = { showList: 'active' };
+        const initialState = { filter: 'active' };
         ({ component, store } = componentWithMockStore(<TodoForm />, initialState))
 
 
@@ -40,7 +40,7 @@ describe('TodoList', () => {
 
 
     it('Filter by completed', () => {
-        const initialState = { showList: 'completed' };
+        const initialState = { filter: 'completed' };
         ({ component, store } = componentWithMockStore(<TodoForm />, initialState))
 
 
@@ -56,7 +56,7 @@ describe('TodoList', () => {
 
 
     it('Filter by All items', () => {
-        const initialState = { showList: 'all' };
+        const initialState = { filter: 'all' };
         ({ component, store } = componentWithMockStore(<TodoForm />, initialState))
 
             const activeTodos = component.root.findAllByProps({ active: true })
