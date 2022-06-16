@@ -1,0 +1,48 @@
+@import '../../Utils/style/globalVariables.scss';
+@import '../../Utils/style/checkboxTodo.scss';
+
+.todoList-item {
+    margin:0 10px;
+
+    display: grid;
+    grid-template-columns: 30px auto auto;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: start;
+
+    border-bottom: 1px solid $DarkGrayishBlue;
+    
+    .input_checkBox{
+        margin: 0;
+        justify-self: center;
+    }
+
+    .todo_button--remove{
+        height: 15px;
+        width: 15px;
+
+        justify-self: end;
+        background: none;
+        border: none;
+
+        background-image: url('../../Assets/icon-cross.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        cursor: pointer;
+    }
+
+    p {
+        text-align: start;
+        margin: 15px 10px;
+        overflow: scroll;
+        color: $lightGrayishBlue;
+    }
+
+}
+
+.item-completed {
+    text-decoration: line-through;
+}
+
+@media (max-width:$globalMedia-maxWidth) {}

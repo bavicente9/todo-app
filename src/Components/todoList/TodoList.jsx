@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectTheme } from '../../features/theme/themeSlice';
 import { removeTodosCompleteds, selectCounterActive, selectFilter } from '../../features/todosList/todosSlice';
 import FilterButtons from '../filterButtons/filterButtons';
+import TodoItem from '../todoItem/TodoItem';
 import './TodoList.scss'
 
 
@@ -18,30 +19,13 @@ const TodoList = () => {
         e.preventDefault()
         dispatch(removeTodosCompleteds())
     }
-    //TODO:max characters: 280
 
     return (
         <>
             <div className={`todoList_container todoList_container--${theme}`}>
                 <ul className='todoList_list'>
-                    <li className='todoList-item item-completed'>
-                        <input className='input_checkBox' type='checkbox' />
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Morbi erat felis, congue a consectetur ac, pretium sed risus.
-                            Cras ornare tortor ut ullamcorper posuere. Sed vel dui bibendum,
-                            laoreet lectus non, viverra erat. Mauris aliquet velit sagittis elit
-                            commodo venenatis. Aoe aoeu
-                        </p>
-                    </li>
-                    <li className='todoList-item item-active'>
-                        <input className='input_checkBox' type='checkbox' />
-                        <p>Todo text example</p>
-                    </li>
-                    <li className='todoList-item'>
-                        <input className='input_checkBox' type='checkbox' />
-                        <p>Todo text example</p>
-                    </li>
+                    {/* TODO: make a function to filter todoItems */}
+                    <TodoItem />
                 </ul>
 
                 <div className='footer'>

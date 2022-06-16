@@ -1,5 +1,4 @@
 @import '../../Utils/style/globalVariables.scss';
-@import '../../Utils/style/checkboxTodo.scss';
 
 
 .todoList_container{
@@ -12,28 +11,6 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        
-        .todoList-item{ //TODO item
-            display: grid;
-            grid-template-columns: 40px auto;
-            grid-template-rows: 1fr;
-            align-items: center;
-            justify-items: start;
-            
-            border-bottom: 1px solid $DarkGrayishBlue;
-            p{
-                text-align: start;
-                margin:  15px 10px;
-                overflow: scroll;
-                color: $lightGrayishBlue;
-            }
-            
-        }
-        .item-completed{
-            text-decoration: line-through;
-        }
-        
-        //FINISH TODO ITEM
         
     }
     
@@ -68,9 +45,7 @@
 .todoList_container--light {
     background-color: $veryLightGray;
     color: $veryDarkBlue;
-    
 }
-
 
 
 @media (max-width:$globalMedia-maxWidth) {
@@ -78,9 +53,6 @@
     .todoList_container {
         min-width: $globalMobileContainer-minWidth;
         max-width: $globalMobileContainer-maxWidth;
-        
     }
-    
-    
     
 }
