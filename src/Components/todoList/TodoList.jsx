@@ -1,7 +1,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTheme } from '../../features/theme/themeSlice';
-import { removeTodosCompleteds, selectCounterActive, selectEntities, selectFilter } from '../../features/todosList/todosSlice';
+import { removeTodosCompleteds, selectCounterActive, selectEntities } from '../../features/todosList/todosSlice';
 import FilterButtons from '../filterButtons/filterButtons';
 import TodoItem from '../todoItem/TodoItem';
 import './TodoList.scss'
@@ -14,9 +14,7 @@ const createTodosItems = (entities) => {
         )
     })
     return (
-        <>
-            {todosItems}
-        </>
+        <>{todosItems}</>
     )
 }
 
@@ -26,7 +24,6 @@ const TodoList = () => {
     const dispatch = useDispatch()
     const entities = useSelector(selectEntities)
     const theme = useSelector(selectTheme)
-    const filter = useSelector(selectFilter)
     let counterActiveTodos = useSelector(selectCounterActive)
 
     const handleClearCompletedTodos = (e) => {

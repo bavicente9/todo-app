@@ -19,11 +19,6 @@ function App() {
          <TodoList />
       </main>
 
-      <footer>
-        <p>
-        Drag and drop to reader list
-        </p>
-      </footer>
     </div>
   );
 }
