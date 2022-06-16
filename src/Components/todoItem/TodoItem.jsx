@@ -1,35 +1,42 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTheme } from '../../features/theme/themeSlice';
+import { removeTodo, toggleActiveStatus } from '../../features/todosList/todosSlice';
 
 import './TodoItem.scss'
 
 
-const TodoItem = (props) => {
+const TodoItem = ({ active, text, id }) => {
+
+
+    const theme = useSelector(selectTheme)
+    const dispatch = useDispatch()
+
+    const handleToggleActive = (e) => {
+        e.preventDefault()
+        const container = e.target.parentElement
+        container.classList.toggle('item-completed')
+        dispatch(toggleActiveStatus(id))
+    }
+    
+    const handleRemove = (e)=>{
+        e.preventDefault()
+        dispatch(removeTodo(id))
+    }
 
     return (
-        <>
-            <li className='todoList-item item-completed'>
-                <input className='input_checkBox' type='checkbox' />
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Morbi erat felis, congue a consectetur ac, pretium sed risus.
-                    Cras ornare tortor ut ullamcorper posuere. Sed vel dui bibendum,
-                    laoreet lectus non, viverra erat. Mauris aliquet velit sagittis elit
-                    commodo venenatis. Aoe aoeu
-                </p>
-                <button className='todo_button--remove'/>
-            </li>
-            <li className='todoList-item item-active'>
-                <input className='input_checkBox' type='checkbox' />
-                <p>Todo text example</p>
-                <button className='todo_button--remove'/>
-            </li>
-            <li className='todoList-item'>
-                <input className='input_checkBox' type='checkbox' />
-                <p>Todo text example</p>
-                <button className='todo_button--remove'/>
-            </li>
-        </>
+        <li active={`${active}`} className={`todoList-item ${active ? '':'item-completed'} todoList-item--${theme}`}>
+            <input
+                aria-label='completed checkbox'
+
+                className='input_checkBox'
+                type='checkbox'
+                onChange={e => handleToggleActive(e)} />
+            <p>{text}</p>
+            <button
+            aria-label='remove todo'
+            onClick={e=>handleRemove(e)}
+            className='todo_button--remove' />
+        </li>
     )
 }
 
