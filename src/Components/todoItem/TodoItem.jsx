@@ -12,30 +12,31 @@ const TodoItem = ({ active, text, id }) => {
     const dispatch = useDispatch()
 
     const handleToggleActive = (e) => {
-        e.preventDefault()
         const container = e.target.parentElement
         container.classList.toggle('item-completed')
         dispatch(toggleActiveStatus(id))
     }
-    
-    const handleRemove = (e)=>{
+
+    const handleRemove = (e) => {
         e.preventDefault()
         dispatch(removeTodo(id))
     }
 
     return (
-        <li active={`${active}`} className={`todoList-item ${active ? '':'item-completed'} todoList-item--${theme}`}>
+        <li active={`${active}`} className={`todoList-item ${active ? 'item-active' : 'item-completed'} todoList-item--${theme}`}>
             <input
                 aria-label='completed checkbox'
-
+                checked = {!active}
                 className='input_checkBox'
                 type='checkbox'
                 onChange={e => handleToggleActive(e)} />
+
             <p>{text}</p>
+
             <button
-            aria-label='remove todo'
-            onClick={e=>handleRemove(e)}
-            className='todo_button--remove' />
+                aria-label='remove todo'
+                onClick={e => handleRemove(e)}
+                className='todo_button--remove' />
         </li>
     )
 }

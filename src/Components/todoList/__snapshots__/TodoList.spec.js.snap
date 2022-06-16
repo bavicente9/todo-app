@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList match with snapshot 1`] = `
+Array [
+  <div
+    className="todoList_container todoList_container--dark"
+  >
+    <ul
+      className="todoList_list"
+    >
+      <li
+        active="true"
+        className="todoList-item item-active todoList-item--dark"
+      >
+        <input
+          aria-label="completed checkbox"
+          checked={false}
+          className="input_checkBox"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <p>
+          text example
+        </p>
+        <button
+          aria-label="remove todo"
+          className="todo_button--remove"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        active="false"
+        className="todoList-item item-completed todoList-item--dark"
+      >
+        <input
+          aria-label="completed checkbox"
+          checked={true}
+          className="input_checkBox"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <p>
+          text example number 2
+        </p>
+        <button
+          aria-label="remove todo"
+          className="todo_button--remove"
+          onClick={[Function]}
+        />
+      </li>
+    </ul>
+    <div
+      className="footer"
+    >
+      <p
+        className="counter"
+      >
+        2
+         items left
+      </p>
+      <div
+        className="filterButtons_container filterButtons_container--dark filterButtons--desktop"
+      >
+        <button
+          className="filter_button "
+          onClick={[Function]}
+          value="all"
+        >
+          All
+        </button>
+        <button
+          className="filter_button  "
+          onClick={[Function]}
+          value="active"
+        >
+          Active
+        </button>
+        <button
+          className="filter_button "
+          onClick={[Function]}
+          value="completed"
+        >
+          Completed
+        </button>
+      </div>
+      <button
+        className="button_clear"
+        onClick={[Function]}
+      >
+        Clear completed
+      </button>
+    </div>
+  </div>,
+  <div
+    className="filterButtons_container filterButtons_container--dark filterButtons--mobile"
+  >
+    <button
+      className="filter_button "
+      onClick={[Function]}
+      value="all"
+    >
+      All
+    </button>
+    <button
+      className="filter_button  "
+      onClick={[Function]}
+      value="active"
+    >
+      Active
+    </button>
+    <button
+      className="filter_button "
+      onClick={[Function]}
+      value="completed"
+    >
+      Completed
+    </button>
+  </div>,
+]
+`;

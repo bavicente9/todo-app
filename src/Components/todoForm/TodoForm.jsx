@@ -14,7 +14,6 @@ const TodoForm = () => {
     
 
     const handleCheckbox = (e) => {
-        e.preventDefault()
         setCheckboxValue(e.target.checked)
     }
 

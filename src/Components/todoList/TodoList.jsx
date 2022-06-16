@@ -1,16 +1,30 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTheme } from '../../features/theme/themeSlice';
-import { removeTodosCompleteds, selectCounterActive, selectFilter } from '../../features/todosList/todosSlice';
+import { removeTodosCompleteds, selectCounterActive, selectEntities, selectFilter } from '../../features/todosList/todosSlice';
 import FilterButtons from '../filterButtons/filterButtons';
 import TodoItem from '../todoItem/TodoItem';
 import './TodoList.scss'
 
 
+const createTodosItems = (entities) => {
+    const todosItems = entities.map(item => {
+        return (
+            <TodoItem active={item.active} id={item.id} text={item.text} key={item.id} />
+        )
+    })
+    return (
+        <>
+            {todosItems}
+        </>
+    )
+}
+
 
 const TodoList = () => {
 
     const dispatch = useDispatch()
+    const entities = useSelector(selectEntities)
     const theme = useSelector(selectTheme)
     const filter = useSelector(selectFilter)
     let counterActiveTodos = useSelector(selectCounterActive)
@@ -24,12 +38,11 @@ const TodoList = () => {
         <>
             <div className={`todoList_container todoList_container--${theme}`}>
                 <ul className='todoList_list'>
-                    {/* TODO: make a function to filter todoItems */}
-                    <TodoItem />
+                    {createTodosItems(entities)}
                 </ul>
 
                 <div className='footer'>
-                    <p className='counter'>{counterActiveTodos}</p>
+                    <p className='counter'>{counterActiveTodos} items left</p>
 
                     <FilterButtons theme={theme} className='filterButtons--desktop' />
 

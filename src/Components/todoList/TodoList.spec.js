@@ -1,6 +1,6 @@
 import componentWithMockStore from "../../Utils/test/componentWithMockStore";
-import TodoForm from "../todoForm/TodoForm";
 import renderer from 'react-test-renderer';
+import TodoList from "./TodoList";
 
 
 
@@ -12,73 +12,25 @@ describe('TodoList', () => {
 
     beforeEach(() => {
         //render a component with a mock Store
-        ({ component, store } = componentWithMockStore(<TodoForm />))
+        ({ component, store } = componentWithMockStore(<TodoList />))
     });
 
 
-    // it('match with snapshot', () => {
-    //     expect(component.toJSON()).toMatchSnapshot();
-    // })
+    it('match with snapshot', () => {
+        expect(component.toJSON()).toMatchSnapshot();
+    })
 
 
-    // it('Filter by Active items', () => {
 
-    //     const initialState = { filter: 'active' };
-    //     ({ component, store } = componentWithMockStore(<TodoForm />, initialState))
-
-
-    //     const activeTodos = component.root.findAllByProps({ active: true })
-    //     const completedTodos = component.root.findAllByProps({ active: false })
-
-    //     expect(activeTodos.lenght).toBeGreaterThan(0)
-    //     expect(completedTodos.lenght).toBe(0)
-
-    // })
-
-
+    it('correctly call of clear Completed dispatch', () => {
+        renderer.act(() => {
+            const ev = {
+                preventDefault: jest.fn()
+            }
+            component.root.findByProps({className:'button_clear'}).props.onClick(ev)
+        }
+        )
+        expect(store.dispatch).toHaveBeenCalledTimes(1);
+    })
     
-
-
-    // it('Filter by completed', () => {
-    //     const initialState = { filter: 'completed' };
-    //     ({ component, store } = componentWithMockStore(<TodoForm />, initialState))
-
-
-    //     const activeTodos = component.root.findAllByProps({ active: true })
-    //     const completedTodos = component.root.findAllByProps({ active: false })
-
-    //     expect(completedTodos.lenght).toBeGreaterThan(0)
-    //     expect(activeTodos.lenght).toBe(0)
-
-    // })
-
-
-
-
-    // it('Filter by All items', () => {
-    //     const initialState = { filter: 'all' };
-    //     ({ component, store } = componentWithMockStore(<TodoForm />, initialState))
-
-    //         const activeTodos = component.root.findAllByProps({ active: true })
-    //         const completedTodos = component.root.findAllByProps({ active: false })
-
-    //         expect(completedTodos.lenght).toBeGreaterThan(0)
-    //         expect(activeTodos.lenght).toBeGreaterThan(0)
-    // })
-
-    // it('show counter of Active todo items  correctly ', () => {
-
-    //     const counter = component.root.findByProps({className:'counter'})
-
-    //     expect(counter).toHaveTextContent('2')
-    // })
-
-
-
-    // it('correctly call of clear Completed dispatch', () => {
-    //     renderer.act(
-    //         component.root.findByProps({ onclick: handleClearCompletedTodos }).props.onclick()
-    //     )
-    //     expect(store.dispatch).toHaveBeenCalledTimes(1);
-    // })
 })
