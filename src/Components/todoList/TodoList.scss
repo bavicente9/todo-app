@@ -1,3 +1,58 @@
+@import '../../Utils/style/globalVariables.scss';
 
-div{
+
+.todoList_container{
+    margin: 15px auto;
+    min-width: $globalContainer-minWidth;
+    max-width: $globalContainer-maxWidth;
+    border-radius: 5px;
+    
+    .todoList_list{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+    }
+    
+    .footer{
+        margin: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .button_clear{
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            &:hover{
+                color: $lightGrayishBlueHover;
+            }
+
+        }
+
+    }
+    
+    
+}
+
+
+.todoList_container--dark {
+    background-color: $veryDarkDesaturatedBlue;
+    color: $lightGrayishBlue;
+}
+
+.todoList_container--light {
+    background-color: $veryLightGray;
+    color: $veryDarkBlue;
+}
+
+
+@media (max-width:$globalMedia-maxWidth) {
+    
+    .todoList_container {
+        min-width: $globalMobileContainer-minWidth;
+        max-width: $globalMobileContainer-maxWidth;
+    }
+    
 }

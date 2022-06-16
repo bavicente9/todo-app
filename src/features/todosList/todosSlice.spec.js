@@ -1,8 +1,9 @@
-import todosReducer, { addTodo, changeShowList, removeTodo, removeTodosCompleteds, toggleActiveStatus } from "./todosSlice";
+import todosReducer, { addTodo, changeFilter, removeTodo, removeTodosCompleteds, toggleActiveStatus } from "./todosSlice";
 
 
 describe('todos reducer', () => {
 
+    const example280Char = "280char Lorem ipsum dolor sit amet, consectetur adipiscing elit.Morbi erat felis, congue a consectetur ac, pretium sed risus.Cras ornare tortor ut ullamcorper posuere. Sed vel dui bibendum,laoreet lectus non, viverra erat. Mauris aliquet velit sagittis elitcommodo venenatis.12345"
     const initialState = {
         entities: [
             {
@@ -12,11 +13,11 @@ describe('todos reducer', () => {
             },
             {
                 id: '2',
-                text: 'text example number 2',
+                text: example280Char,
                 active: false
             },
         ],
-        showList: 'all',
+        filter: 'all',
         counterActive: 2
     };
 
@@ -47,7 +48,7 @@ describe('todos reducer', () => {
     it('should remove all completed todos items', () => {
         
         const actual = todosReducer(initialState, removeTodosCompleteds());
-        expect(actual.entities.find(item => item.active ===true)).toBe(undefined);
+        expect(actual.entities.find(item => item.active ===false)).toBe(undefined);
         
         
     })
@@ -62,20 +63,20 @@ describe('todos reducer', () => {
     } )
 
 
-    it('should toggle "showList" between "all", "active", "completed"', () => {
+    it('should toggle "filter" between "all", "active", "completed"', () => {
         
         const initialState = {
             value: 'dark'
         }
         
-        let actual = todosReducer(initialState, changeShowList('active'));
-        expect(actual.showList).toEqual('active');
+        let actual = todosReducer(initialState, changeFilter('active'));
+        expect(actual.filter).toEqual('active');
         
-        actual = todosReducer(initialState, changeShowList('completed'));
-        expect(actual.showList).toEqual('completed');
+        actual = todosReducer(initialState, changeFilter('completed'));
+        expect(actual.filter).toEqual('completed');
         
-        actual = todosReducer(initialState, changeShowList('all'));
-        expect(actual.showList).toEqual('all');
+        actual = todosReducer(initialState, changeFilter('all'));
+        expect(actual.filter).toEqual('all');
     })
     
     it('should add one to the counter', () => {

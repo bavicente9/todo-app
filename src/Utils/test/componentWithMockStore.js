@@ -19,7 +19,7 @@ const defaultState = {
               active: false
           },
       ],
-      showList: 'all',
+      filter: 'all',
       counterActive: 2
   }
 }
@@ -27,7 +27,7 @@ const defaultState = {
 
 const componentWithMockStore = (children , initialState = defaultState) => {
     
-    initialState = {defaultState, ...initialState}
+    initialState = {...defaultState, ...initialState}
     //create a mock Store
     const mockStore = configureStore([])
     const store = mockStore(initialState);

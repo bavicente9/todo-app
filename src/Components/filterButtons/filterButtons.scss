@@ -1,0 +1,67 @@
+
+@import '../../Utils/style/globalVariables.scss';
+
+.filterButtons_container--dark {
+    background-color: $veryDarkDesaturatedBlue;
+    
+    .filter_button{
+        color: $lightGrayishBlue;
+
+    }
+}
+
+.filterButtons_container--light {
+    background-color: $veryLightGray;
+    .filter_button{
+        color: $veryDarkBlue;
+        
+    }
+}
+
+.filterButtons_container{
+    .filter_button{
+        background: none;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            color: $brightBlue;
+        }
+    }
+    
+    .filterSelected{
+        color: $brightBlue;
+        
+    }
+}
+
+.filterButtons--desktop{
+    display: block;
+}
+.filterButtons--mobile{
+    display: none;
+}
+
+@media (max-width:$globalMedia-maxWidth) {
+    
+    
+    .filterButtons--desktop{
+        display: none;
+    }
+    .filterButtons--mobile{
+        min-width: $globalMobileContainer-minWidth;
+        max-width: $globalMobileContainer-maxWidth;
+        height: 2rem;
+        margin: 0 auto;
+        
+        border-radius: 5px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        
+    }
+
+    
+    
+}

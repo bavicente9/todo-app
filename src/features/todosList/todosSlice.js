@@ -1,6 +1,7 @@
 
 
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {createSlice } from '@reduxjs/toolkit';
+
 
 const initialState = {
     entities: [
@@ -11,12 +12,12 @@ const initialState = {
         },
         {
             id: '2',
-            text: 'text example number 2',
+            text: "280char Lorem ipsum dolor sit amet, consectetur adipiscing elit.Morbi erat felis, congue a consectetur ac, pretium sed risus.Cras ornare tortor ut ullamcorper posuere. Sed vel dui bibendum,laoreet lectus non, viverra erat. Mauris aliquet velit sagittis elitcommodo venenatis.12345",
             active: false
         },
     ],
-    showList: 'all',
-    counterActive: 2
+    filter: 'all',
+    counterActive:2 
 };
 
 export const todosSlice = createSlice({
@@ -26,11 +27,10 @@ export const todosSlice = createSlice({
 
         addTodo: (state, action) => {
             state.entities = [...state.entities, action.payload]
-            state.counterActive++
+            if(action.payload.active)state.counterActive++
         },
 
         removeTodo: (state, action) => {
-
             const index = state.entities.findIndex(item => item.id === action.payload)
 
             if (state.entities[index].active) state.counterActive--
@@ -39,7 +39,9 @@ export const todosSlice = createSlice({
         },
 
         removeTodosCompleteds: (state) => {
-            state.entities = state.entities.filter(item => item.active === false)
+            const activeTodos = state.entities.filter(item => item.active === true) 
+            state.entities = activeTodos
+            state.counterActive = activeTodos.length
         },
 
         toggleActiveStatus: (state, action) => {
@@ -53,17 +55,17 @@ export const todosSlice = createSlice({
                 state.counterActive--
             }
         },
-        changeShowList: (state, action) => {
-            state.showList = action.payload
+        changeFilter: (state, action) => {
+            state.filter = action.payload
         },
     },
 
 });
 
-export const { addTodo, removeTodo, removeTodosCompleteds, toggleActiveStatus,changeShowList } = todosSlice.actions;
+export const { addTodo, removeTodo, removeTodosCompleteds, toggleActiveStatus,changeFilter } = todosSlice.actions;
 
 export const selectEntities = (state) => state.todos.entities;
-export const selectShowList = (state) => state.todos.showList;
+export const selectFilter = (state) => state.todos.filter;
 export const selectCounterActive = (state) => state.todos.counterActive;
 
 

@@ -1,37 +1,26 @@
 @import '../../Utils/style/globalVariables.scss';
+@import '../../Utils/style/checkboxTodo.scss';
 
 
 .todoForm {
     .form_container {
         padding: 15px 0;
         margin: 15px auto;
+        
         min-width: $globalContainer-minWidth;
         max-width: $globalContainer-maxWidth;
+        
         display: flex;
-
-        .input_checkBox {
-            appearance: none;
-            margin-left: 25px;
-            width: 23px;
-            height: 23px;
-            border: none;
-            border-radius: 50%;
-            border: 1px solid $darkGrayishBlue;
-            cursor: pointer;
-
-            &:checked {
-                background-image: url('../../Assets/icon-check.svg'), linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-                background-repeat: no-repeat;
-                background-size: content;
-                background-position: center;
-            }
+        .input_checkBox{
+            
         }
-
         .input_text {
             background: none;
             border: none;
             outline: none;
-            margin-left: 15px;
+
+            width: calc(90% - 33px);
+            margin-left: 10px;
             color: $veryDarkGrayishBlue;
         }
 
@@ -45,7 +34,7 @@
     }
 
     .form_container--dark {
-        background-color: $veryDarkGrayishBlue;
+        background-color: $veryDarkDesaturatedBlue;
     }
 
     .form_container--light {

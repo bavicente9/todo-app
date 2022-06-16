@@ -14,7 +14,6 @@ const TodoForm = () => {
     
 
     const handleCheckbox = (e) => {
-        e.preventDefault()
         setCheckboxValue(e.target.checked)
     }
 
@@ -51,6 +50,7 @@ const TodoForm = () => {
                     name='Todo completed state'
                     className="input_checkBox "
                     type='checkbox'
+                    maxlength="280"
                     onChange = {e => handleCheckbox(e)}
                 />
                 <input
