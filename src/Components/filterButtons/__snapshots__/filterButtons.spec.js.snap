@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filter buttons match with snapshot 1`] = `
+<div
+  className="filterButtons_container filterButtons_container--dark undefined"
+>
+  <button
+    className="filter_button "
+    onClick={[Function]}
+    value="all"
+  >
+    All
+  </button>
+  <button
+    className="filter_button  "
+    onClick={[Function]}
+    value="active"
+  >
+    Active
+  </button>
+  <button
+    className="filter_button "
+    onClick={[Function]}
+    value="completed"
+  >
+    Completed
+  </button>
+</div>
+`;

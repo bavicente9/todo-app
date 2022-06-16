@@ -1,4 +1,4 @@
-import todosReducer, { addTodo, changefilter, removeTodo, removeTodosCompleteds, toggleActiveStatus } from "./todosSlice";
+import todosReducer, { addTodo, changeFilter, removeTodo, removeTodosCompleteds, toggleActiveStatus } from "./todosSlice";
 
 
 describe('todos reducer', () => {
@@ -75,7 +75,7 @@ describe('todos reducer', () => {
         expect(actual.filter).toEqual('completed');
         
         actual = todosReducer(initialState, changeFilter('all'));
-        expect(actual.Filter).toEqual('all');
+        expect(actual.filter).toEqual('all');
     })
     
     it('should add one to the counter', () => {

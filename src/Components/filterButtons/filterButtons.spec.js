@@ -8,13 +8,23 @@ import FilterButtons from "./filterButtons";
 describe('filter buttons', () => {
     let store
     let component;
-    const simulateClickByProps = (props) => {
-        //example Of props { onclick: handleShowActive() }
-        renderer.act(
-            component.root.findByProps().props.onclick()
-        )
+
+    const clickByValue = (value) => {
+        //example Of value { target:{value:'all'}}
+        renderer.act(() => {
+            let ev = {
+                preventDefault: jest.fn(),
+                target: { value: 'all' }
+            }
+            ev = { ...ev, ...value }
+
+            let button = [...component.root.findAllByType('button')]
+            
+            button = button.find(item => item.props.value === ev.target.value)
+            button.props.onClick(ev)
+        })
     }
-    
+
     beforeEach(() => {
         //render a component with a mock Store
         ({ component, store } = componentWithMockStore(<FilterButtons />))
@@ -27,28 +37,26 @@ describe('filter buttons', () => {
 
     it('correctly call of All button dispatch', () => {
 
-        renderer.act(
-            component.root.findByProps({ onclick: handleShowCompleted() }).props.onclick()
-        )
+        clickByValue({  target:{value: 'all'}  })
+
         expect(store.dispatch).toHaveBeenCalledTimes(1);
     })
 
     it('correctly call of completed button dispatch', () => {
-        renderer.act(
-            component.root.findByProps({ onclick: handleShowCompleted() }).props.onclick()
-        )
-        expect(store.dispatch).toHaveBeenCalledTimes(1);
 
+        clickByValue({ target: { value: 'completed' } })
+
+        expect(store.dispatch).toHaveBeenCalledTimes(1);
     })
-    
-    
+
+
     it('correctly call of Active button dispatch', () => {
-        //TODO: check if this fn work, if it work refactoring the others tests
-        simulateClickByProps({onclick:handleShowActive()});
+
+        clickByValue({ target: { value: 'active' } })
 
         expect(store.dispatch).toHaveBeenCalledTimes(1);
     })
 
 
-    
+
 })

@@ -1,6 +1,6 @@
 
 
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     entities: [
@@ -54,7 +54,7 @@ export const todosSlice = createSlice({
             }
         },
         changeFilter: (state, action) => {
-            state.Filter = action.payload
+            state.filter = action.payload
         },
     },
 
@@ -63,7 +63,7 @@ export const todosSlice = createSlice({
 export const { addTodo, removeTodo, removeTodosCompleteds, toggleActiveStatus,changeFilter } = todosSlice.actions;
 
 export const selectEntities = (state) => state.todos.entities;
-export const selectFilter = (state) => state.todos.Filter;
+export const selectFilter = (state) => state.todos.filter;
 export const selectCounterActive = (state) => state.todos.counterActive;
 
 
