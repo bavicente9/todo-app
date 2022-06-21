@@ -50,7 +50,7 @@ const TodoForm = () => {
                     name='Todo completed state'
                     className="input_checkBox "
                     type='checkbox'
-                    maxlength="280"
+                    maxLength="280"
                     onChange = {e => handleCheckbox(e)}
                 />
                 <input
