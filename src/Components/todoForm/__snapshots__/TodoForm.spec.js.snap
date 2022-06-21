@@ -10,7 +10,7 @@ exports[`todo input match with snapshot 1`] = `
   >
     <input
       className="input_checkBox "
-      maxlength="280"
+      maxLength="280"
       name="Todo completed state"
       onChange={[Function]}
       type="checkbox"

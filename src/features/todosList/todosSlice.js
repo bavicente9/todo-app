@@ -12,13 +12,24 @@ const initialState = {
         },
         {
             id: '2',
-            text: "280char Lorem ipsum dolor sit amet, consectetur adipiscing elit.Morbi erat felis, congue a consectetur ac, pretium sed risus.Cras ornare tortor ut ullamcorper posuere. Sed vel dui bibendum,laoreet lectus non, viverra erat. Mauris aliquet velit sagittis elitcommodo venenatis.12345",
+            text: '10 minutes meditation',
+            active: true
+        },
+        {
+            id: '3',
+            text: 'Read for 1hour',
+            active: true
+        },
+        {
+            id: '4',
+            text: "280char Example Lorem ipsum dolor sit amet, consectetur adipiscing elit.Morbi erat felis, congue a consectetur ac, pretium sed risus.Cras ornare tortor ut ullamcorper posuere. Sed vel dui bibendum,laoreet lectus non, viverra erat. Mauris aliquet velit sagittis elitcommodo venena.",
             active: false
         },
     ],
     filter: 'all',
-    counterActive:2 
+    counterActive:3
 };
+
 
 export const todosSlice = createSlice({
     name: 'todos',
